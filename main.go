@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"sort"
 )
@@ -50,5 +51,6 @@ func main() {
 		stops(w, r, g)
 	})
 
+	fmt.Println("Server started...")
 	http.ListenAndServe(":8090", nil)
 }
