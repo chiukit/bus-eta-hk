@@ -1,0 +1,60 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:605918686749:task-definition/bus-eta-hk:1",
+    "containerDefinitions": [
+        {
+            "name": "bus-eta-hk",
+            "image": "605918686749.dkr.ecr.ap-southeast-1.amazonaws.com/bus-eta-hk",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8090,
+                    "hostPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/bus-eta-hk",
+                    "awslogs-region": "ap-southeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "bus-eta-hk",
+    "taskRoleArn": "arn:aws:iam::605918686749:role/ecsTaskRole",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EXTERNAL",
+        "EC2"
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "512",
+    "registeredAt": "2022-09-26T21:39:34.932000+08:00",
+    "registeredBy": "arn:aws:iam::605918686749:root"
+}
