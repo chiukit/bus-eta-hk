@@ -6,6 +6,7 @@ WORKDIR $GOPATH/src/github.com/bus_eta_hk
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY . .
 
+ENV GOARCH=arm64
 # Download all the dependencies
 RUN go get -d -v ./...
 
