@@ -24,3 +24,5 @@ RUN pwd
 
 # Run the executable
 ENTRYPOINT ["eta"]
+
+EXPOSE 8090
