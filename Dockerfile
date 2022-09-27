@@ -21,4 +21,4 @@ EXPOSE 8090
 RUN ls
 
 # Run the executable
-CMD ["eta"]
+ENTRYPOINT ["eta"]
