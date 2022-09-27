@@ -19,6 +19,8 @@ RUN go build .
 EXPOSE 8090
 
 RUN ls
+RUN echo $PATH
+RUN pwd
 
 # Run the executable
 ENTRYPOINT ["eta"]
