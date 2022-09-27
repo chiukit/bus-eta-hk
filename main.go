@@ -50,6 +50,9 @@ func main() {
 	http.HandleFunc("/stops", func(w http.ResponseWriter, r *http.Request) {
 		stops(w, r, g)
 	})
+	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
+		WriteJSON(w, http.StatusOK, "pong")
+	})
 
 	fmt.Println("Server started...")
 	http.ListenAndServe(":8090", nil)
