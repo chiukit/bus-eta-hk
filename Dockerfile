@@ -18,5 +18,7 @@ RUN go build .
 # This container exposes port 8080 to the outside world
 EXPOSE 8090
 
+RUN ls
+
 # Run the executable
 CMD ["eta"]
