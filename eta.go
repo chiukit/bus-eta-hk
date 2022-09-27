@@ -21,10 +21,10 @@ func GetETAByStopID(id string) []ETA {
 
 func CalETADiff(v ETA) ETA {
 	diffMinutes := v.Eta.Sub(v.DataTimestamp).Round(time.Minute).Minutes()
-	if diffMinutes > 0 {
+	if diffMinutes >= 0 {
 		v.EtaMinutesDiff = diffMinutes
 	} else {
-		v.EtaMinutesDiff = 0
+		v.EtaMinutesDiff = -1
 	}
 	return v
 }
