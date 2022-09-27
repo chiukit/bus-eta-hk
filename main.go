@@ -51,7 +51,7 @@ func main() {
 		stops(w, r, g)
 	})
 	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
-		WriteJSON(w, http.StatusOK, "pong")
+		WriteJSON(w, http.StatusOK, "pong1")
 	})
 
 	fmt.Println("Server started...")
