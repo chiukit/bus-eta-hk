@@ -24,7 +24,10 @@ func Fetch(url string) []byte {
 }
 
 func WriteJSON(w http.ResponseWriter, statusCode int, body interface{}) {
-	w.WriteHeader(statusCode)
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(&body)
+	w.Header().Set("Content-Encoding", "gzip")
+	w.WriteHeader(statusCode)
+	gw := gzip.NewWriter(w)
+	defer gw.Close()
+	json.NewEncoder(gw).Encode(body)
 }
