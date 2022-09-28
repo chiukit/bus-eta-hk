@@ -70,5 +70,16 @@ func FetchAllStops() []Stop {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	return Map(f.Data, CalGeohash)
+
+	return Map(f.Data, func(v StopInput) Stop {
+		stop := Stop{
+			StopID: v.StopID,
+			NameEn: v.NameEn,
+			NameTC: v.NameTC,
+			NameSC: v.NameSC,
+			Lat:    v.Lat,
+			Long:   v.Long,
+		}
+		return CalGeohash(stop)
+	})
 }

@@ -15,7 +15,16 @@ type StopETAResponse struct {
 
 type StopListResponse struct {
 	ETAResponse
-	Data []Stop `json:data`
+	Data []StopInput `json:data`
+}
+
+type StopInput struct {
+	StopID string  `json:"stop"`
+	NameEn string  `json:"name_en"`
+	NameTC string  `json:"name_tc"`
+	NameSC string  `json:"name_sc"`
+	Lat    float64 `json:"lat,string"`
+	Long   float64 `json:"long,string"`
 }
 
 type Stop struct {
@@ -23,8 +32,8 @@ type Stop struct {
 	NameEn   string           `json:"name_en"`
 	NameTC   string           `json:"name_tc"`
 	NameSC   string           `json:"name_sc"`
-	Lat      float64          `json:"lat,string"`
-	Long     float64          `json:"long,string"`
+	Lat      float64          `json:"lat"`
+	Long     float64          `json:"long"`
 	Distance float64          `json:"distance"`
 	Geohash  string           `json:"geohash"`
 	ETA      map[string][]ETA `json:"eta"`
